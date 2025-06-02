@@ -28,7 +28,7 @@ import {
 } from 'react-icons/fa';
 import StudentApiService from '../../../services/Teachers/StudentApiService';
 import S3Image from '../../../components/S3Image';
-import '../../../css/Teachers/ManageProgress.css';
+import '../../../css/Teachers/manageProgress.css';
 
 function getPageNumbers(currentPage, totalPages) {
   const visiblePageCount = 5;

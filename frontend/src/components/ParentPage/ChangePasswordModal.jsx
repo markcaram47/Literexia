@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FiLock, FiEye, FiEyeOff, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
 import axios from 'axios';
-import './ChangePasswordModal.css';
+import './changePasswordModal.css';
 
 const ChangePasswordModal = ({ onClose }) => {
   const [passwordData, setPasswordData] = useState({

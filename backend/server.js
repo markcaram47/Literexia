@@ -58,6 +58,7 @@ app.use(cors({
       'http://localhost:5173',
       'http://localhost:5174',
       'http://192.168.56.1:5173',
+      'https://literexia.onrender.com'
       'http://192.168.1.4:5173',
       process.env.FRONTEND_URL
     ].filter(Boolean);

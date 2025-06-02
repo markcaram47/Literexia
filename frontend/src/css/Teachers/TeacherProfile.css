@@ -1,0 +1,921 @@
+/* 
+* TeacherProfile Component Styles - Enhanced
+* This stylesheet contains updated styles with 'lit-' prefix for namespacing
+* and support for profile image functionality
+*/
+
+/* ---------------- Outer Container with Dark Blue Background ---------------- */
+.lit-teacherprofile-container {
+  background: #3b4f81;
+  min-height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  margin-left: 260px; /* Matches sidebar width from Sidebar.css */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* High contrast mode support for accessibility */
+@media (prefers-contrast: more) {
+  .lit-avatar-lg {
+    outline: 3px solid white;
+  }
+  
+  .lit-input-group input,
+  .lit-input-group textarea,
+  .lit-input-group select,
+  .lit-password-field input {
+    border-width: 2px;
+  }
+  
+  .lit-edit-btn,
+  .lit-change-password-btn,
+  .lit-image-btn {
+    outline: 2px solid transparent;
+  }
+  
+  .lit-edit-btn:focus,
+  .lit-change-password-btn:focus,
+  .lit-image-btn:focus {
+    outline: 2px solid #f3c922;
+    outline-offset: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .lit-teacherprofile-container {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .lit-teacherprofile-card {
+    box-shadow: none;
+    max-width: 100%;
+  }
+  
+  .lit-action-buttons,
+  .lit-change-password-btn,
+  .lit-avatar-overlay {
+    display: none;
+  }
+  
+  .lit-divider {
+    border-top-color: #000;
+  }
+  
+  .lit-subtitle {
+    color: #000;
+    border-bottom-color: #000;
+  }
+  
+  .lit-avatar-lg {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+/* ---------------- Centered White Card ---------------- */
+.lit-teacherprofile-card {
+  background: #fff;
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 2rem 2.5rem;
+}
+
+/* ---------------- Page Title ---------------- */
+.lit-page-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a3b73;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.lit-page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #f3c922; /* Gold accent color from Literexia color scheme */
+  border-radius: 3px;
+}
+
+/* ---------------- Profile Card (General) ---------------- */
+.lit-profile-card {
+  background: #fdfdfd;
+  border-radius: 8px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* ---------------- Loading & Error States ---------------- */
+.lit-loading-state, .lit-error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  color: #555;
+}
+
+.lit-loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(59, 79, 129, 0.2);
+  border-radius: 50%;
+  border-top-color: #3b4f81;
+  animation: lit-spin 1s infinite linear;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes lit-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.lit-error-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f44336;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.lit-error-state h3 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.lit-error-state button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #3b4f81;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* ---------------- PERSONAL INFO: Header Row ---------------- */
+.lit-personal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* ---------------- Avatar with Profile Image Support ---------------- */
+.lit-avatar-lg {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #3b4f81, #2a3b73);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.lit-avatar-lg::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.lit-has-image {
+  background: #f5f5f5;
+}
+
+.lit-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.lit-avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.lit-avatar-lg:hover .lit-avatar-overlay {
+  opacity: 1;
+}
+
+.lit-camera-text {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ---------------- Image Upload Controls ---------------- */
+.lit-image-controls {
+  position: absolute;
+  left: 90px;
+  top: 80px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lit-file-input {
+  display: none; /* Hide the native file input */
+}
+
+.lit-image-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.lit-image-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.lit-upload-btn {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.lit-upload-btn:hover:not(:disabled) {
+  background-color: #3d8c40;
+}
+
+.lit-delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.lit-delete-btn:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+.lit-image-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.lit-personal-info {
+  flex: 1;
+}
+
+.lit-teacher-name {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.6rem;
+  color: #2a3b73;
+}
+
+.lit-employee-id {
+  margin: 0 0 0.8rem 0;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lit-employee-id .lit-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.lit-employee-id .lit-value {
+  color: #555;
+  font-family: 'Courier New', monospace;
+  background-color: #f5f5f5;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* ---------------- Contact & Position Group ---------------- */
+.lit-contact-edit-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+}
+
+/* ---------------- Input Group with Icon - UPDATED ---------------- */
+.lit-input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.lit-input-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.lit-full-width {
+  grid-column: span 2;
+}
+
+.lit-input-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Input styling without icons */
+.lit-input-group input,
+.lit-input-group textarea,
+.lit-input-group select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  line-height: 1.5;
+}
+
+/* Gender select styling */
+.lit-gender-select {
+  appearance: menulist; /* Show the dropdown arrow */
+  padding-right: 2rem; /* Space for the dropdown arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233b4f81' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.lit-input-group input:focus,
+.lit-input-group textarea:focus,
+.lit-input-group select:focus {
+  outline: none;
+  border-color: #3b4f81;
+  box-shadow: 0 0 0 2px rgba(59, 79, 129, 0.1);
+  background-color: #fff;
+}
+
+.lit-input-group input:read-only,
+.lit-input-group textarea:read-only,
+.lit-input-group select:disabled {
+  background-color: #f5f5f5;
+  cursor: default;
+  color: #555;
+  border-color: #ddd;
+}
+
+.lit-input-error {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: block;
+  font-weight: 500;
+}
+
+/* Error state for inputs */
+.lit-input-group input.lit-error,
+.lit-input-group textarea.lit-error,
+.lit-input-group select.lit-error {
+  border-color: #f44336;
+  background-color: #fff8f8;
+}
+
+/* ---------------- Action Buttons ---------------- */
+.lit-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.lit-edit-btn {
+  background-color: #3b4f81;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  align-self: flex-start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lit-edit-btn:hover {
+  background-color: #2a3b73;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lit-change-password-btn {
+  background-color: #f3c922;
+  color: #333;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lit-change-password-btn:hover {
+  background-color: #e5bc14;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------------- Divider ---------------- */
+.lit-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.2rem 0;
+}
+
+/* ---------------- Subtitle ---------------- */
+.lit-subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2a3b73;
+  margin: 1.8rem 0 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f3c922;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lit-subtitle::before {
+  content: '';
+  width: 6px;
+  height: 20px;
+  background-color: #3b4f81;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* ---------------- Info Grid ---------------- */
+.lit-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ---------------- Dialog Overlay (Success & Error) ---------------- */
+.lit-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  animation: lit-fadeIn 0.2s ease-out;
+}
+
+@keyframes lit-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lit-dialog-box {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 90%;
+  width: 500px;
+  animation: lit-scaleIn 0.3s ease-out;
+}
+
+@keyframes lit-scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lit-dialog-box h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #2a3b73;
+}
+
+.lit-dialog-box p {
+  margin: 0 0 1.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.lit-dialog-box button {
+  background: #3b4f81;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.lit-dialog-box button:hover {
+  background: #2a3b73;
+  transform: translateY(-2px);
+}
+
+/* Success dialog variant */
+.lit-dialog-box.lit-success {
+  border-left: 6px solid #4caf50;
+}
+
+.lit-dialog-box.lit-success h4 {
+  color: #2e7d32;
+}
+
+/* Error dialog variant */
+.lit-dialog-box.lit-error {
+  border-left: 6px solid #f44336;
+}
+
+.lit-dialog-box.lit-error h4 {
+  color: #d32f2f;
+}
+
+.lit-dialog-box.lit-error p {
+  color: #f44336;
+}
+
+/* ---------------- Change Password Modal - UPDATED ---------------- */
+/* Modal container */
+.lit-password-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  animation: lit-scaleIn 0.3s ease-out;
+}
+
+/* Password modal title with yellow underline */
+.lit-password-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2a3b73;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.lit-password-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #f3c922;
+  border-radius: 3px;
+}
+
+/* Password field container */
+.lit-password-field {
+  margin-bottom: 1.5rem;
+}
+
+.lit-password-field label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Password input wrapper for positioning the show button */
+.lit-password-input-wrapper {
+  position: relative;
+  display: block;
+}
+
+/* Password input styling */
+.lit-password-input-wrapper input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  padding-right: 100px; /* Space for the show button */
+}
+
+/* Show button styling */
+.lit-password-toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  background-color: #3b4f81;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Error message styling */
+.lit-password-error {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  border-left: 4px solid #f44336;
+  text-align: left;
+}
+
+/* Success message styling */
+.lit-password-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  border-left: 4px solid #4caf50;
+  text-align: left;
+}
+
+/* Password strength indicator */
+.lit-strength-indicator {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.lit-strength-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.lit-strength-bar-container {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.lit-strength-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Password requirements styling */
+.lit-password-requirements {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.lit-password-requirements ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+.lit-password-requirements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.4rem;
+  break-inside: avoid;
+  color: #666;
+}
+
+.lit-password-requirements li::before {
+  content: '×';
+  position: absolute;
+  left: 0;
+  color: #999;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.lit-password-requirements li.lit-met {
+  color: #2e7d32;
+}
+
+.lit-password-requirements li.lit-met::before {
+  content: '✓';
+  color: #4caf50;
+}
+
+/* Password action buttons */
+.lit-password-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.lit-password-update-btn,
+.lit-password-cancel-btn {
+  flex: 1;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  transition: transform 0.2s;
+}
+
+.lit-password-update-btn {
+  background-color: #3b4f81;
+  color: white;
+}
+
+.lit-password-update-btn:hover:not(:disabled) {
+  background-color: #2a3b73;
+  transform: translateY(-2px);
+}
+
+.lit-password-cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.lit-password-cancel-btn:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.lit-password-action-buttons button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---------------- Responsive Adjustments ---------------- */
+@media (max-width: 1024px) {
+  .lit-teacherprofile-container {
+    margin-left: 80px; /* Adjust for collapsed sidebar on tablet */
+    padding: 1.5rem 0;
+  }
+  
+  .lit-teacherprofile-card {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+  
+  .lit-image-controls {
+    left: 0;
+    top: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lit-teacherprofile-container {
+    margin-left: 0; /* For mobile view when sidebar is hidden */
+    padding: 1rem;
+    align-items: center;
+  }
+  
+  .lit-teacherprofile-card {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+  
+  .lit-page-title {
+    font-size: 1.6rem;
+  }
+  
+  .lit-personal-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .lit-image-controls {
+    position: static;
+    margin: 1rem auto;
+    width: 100%;
+  }
+  
+  .lit-personal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .lit-action-buttons {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .lit-edit-btn, 
+  .lit-change-password-btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .lit-info-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .lit-full-width {
+    grid-column: span 1;
+  }
+  
+  .lit-password-modal {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .lit-password-requirements ul {
+    column-count: 1;
+  }
+  
+  .lit-password-action-buttons {
+    flex-direction: column;
+  }
+  
+  .lit-password-action-buttons button {
+    width: 100%;
+  }
+}

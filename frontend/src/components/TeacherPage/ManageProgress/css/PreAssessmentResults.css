@@ -1,0 +1,852 @@
+/* ===== PRE-ASSESSMENT RESULTS COMPONENT STYLES ===== */
+
+.pre-assessment-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* ===== INFO BANNER SECTION ===== */
+  .pre-assessment-results__info-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border-left: 4px solid #3B4F81;
+    box-shadow: 0 4px 15px rgba(59, 79, 129, 0.15);
+    color: rgb(64, 142, 221);
+  }
+  
+  .pre-assessment-results__info-icon {
+    font-size: 2rem;
+    color: #3B4F81;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .pre-assessment-results__info-content h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #3B4F81;
+  }
+  
+  .pre-assessment-results__info-content p {
+    margin: 0;
+    color: #3B4F81;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .pre-assessment-results__info-content strong {
+    color: #3B4F81;
+    font-weight: 600;
+  }
+  
+  /* ===== EMPTY STATE ===== */
+  .pre-assessment-results__empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f4f6ff;
+    border-radius: 16px;
+    color: #4a5494;
+    border: 2px dashed rgba(74, 84, 148, 0.3);
+  }
+  
+  .pre-assessment-results__empty-state h3 {
+    margin: 1rem 0 0.5rem 0;
+    color: #4a5494;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .pre-assessment-results__empty-state p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  /* ===== OVERVIEW SECTION ===== */
+  .pre-assessment-results__overview {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(59, 79, 129, 0.12);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .pre-assessment-results__overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f3f8;
+  }
+  
+  .pre-assessment-results__overview-header h3 {
+    margin: 0;
+    color: #4a5494;
+    font-size: 1.375rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .pre-assessment-results__overview-icon {
+    color: #4a5494;
+    font-size: 1.25rem;
+  }
+  
+  .pre-assessment-results__score-badge {
+    font-weight: 700;
+    padding: 0.625rem 1.25rem;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    letter-spacing: 0.025em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Reading Level Badge Colors - Aligned with other components */
+  .pre-assessment-results__score-badge.reading-level-early {
+    background: linear-gradient(135deg, #1e548d, #3B4F81);
+    color: white;
+  }
+  
+  .pre-assessment-results__score-badge.reading-level-developing {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+    color: white;
+  }
+  
+  .pre-assessment-results__score-badge.reading-level-fluent {
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    color: white;
+  }
+  
+  .pre-assessment-results__score-badge.reading-level-advanced {
+    background: linear-gradient(135deg, #3F51B5, #303F9F);
+    color: white;
+  }
+  
+  .pre-assessment-results__score-badge.reading-level-not-assessed {
+    background: linear-gradient(135deg, #F9A825, #F57F17);
+    color: white;
+  }
+  
+  /* Single row grid for overview items */
+  .pre-assessment-results__overview-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  .pre-assessment-results__overview-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .pre-assessment-results__overview-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 79, 129, 0.15);
+    background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+  }
+  
+  .pre-assessment-results__overview-item-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #666b89, #3B4F81);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(59, 79, 129, 0.3);
+  }
+  
+  .pre-assessment-results__overview-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .pre-assessment-results__overview-item-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .pre-assessment-results__overview-item-value {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #4a5494;
+  }
+  
+  /* ===== SKILLS RESULTS SECTION ===== */
+  .pre-assessment-results__skills-section {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(59, 79, 129, 0.12);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .pre-assessment-results__section-title {
+    margin: 0 0 2rem 0;
+    color: #4a5494;
+    font-size: 1.375rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f3f8;
+  }
+  
+  .pre-assessment-results__section-icon {
+    color: #4a5494;
+    font-size: 1.25rem;
+  }
+  
+  .pre-assessment-results__skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .pre-assessment-results__skill-item {
+    background: #f7f9fc;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .pre-assessment-results__skill-item:hover {
+    box-shadow: 0 8px 25px rgba(59, 79, 129, 0.15);
+    transform: translateY(-1px);
+    background: #edf2f7;
+  }
+  
+  .pre-assessment-results__skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  .pre-assessment-results__skill-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-right: 1rem;
+  }
+  
+  .pre-assessment-results__skill-name-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .pre-assessment-results__skill-name {
+    font-weight: 600;
+    color: #4a5494;
+    font-size: 1.125rem;
+  }
+  
+  .pre-assessment-results__skill-score {
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+  
+  .pre-assessment-results__expand-btn {
+    background: rgba(74, 84, 148, 0.15);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a5494;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  .pre-assessment-results__expand-btn:hover {
+    background: rgba(74, 84, 148, 0.25);
+    transform: scale(1.05);
+    color: #3B4F81;
+  }
+  
+  .pre-assessment-results__skill-bar-wrapper {
+    height: 8px;
+    background-color: rgba(226, 232, 240, 0.8);
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .pre-assessment-results__skill-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  /* Skill bar colors - Single uniform color */
+  .skill-bar--alphabet_knowledge,
+  .skill-bar--phonological_awareness,
+  .skill-bar--decoding,
+  .skill-bar--word_recognition,
+  .skill-bar--reading_comprehension,
+  .skill-bar--default {
+    background: linear-gradient(90deg, #4a5494, #3B4F81);
+  }
+  
+  .pre-assessment-results__skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Unified blue skill bar */
+  .pre-assessment-results__skill-bar.skill-bar--blue {
+    background-color: #4a5494;
+  }
+  
+  /* ===== SKILL DETAILS EXPANSION ===== */
+  .pre-assessment-results__skill-details {
+    margin: 0 1.5rem 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    animation: expandSkillDetails 0.4s ease-out;
+  }
+  
+  @keyframes expandSkillDetails {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 1000px;
+    }
+  }
+  
+  .pre-assessment-results__skill-details h4 {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4a5494;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pre-assessment-results__sample-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .pre-assessment-results__question-item {
+    background: #f7f9fc;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(59, 79, 129, 0.08);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .pre-assessment-results__question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .pre-assessment-results__question-number {
+    font-weight: 700;
+    color: #4a5494;
+    background: rgba(74, 84, 148, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+  }
+  
+  .pre-assessment-results__question-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+  }
+  
+  .pre-assessment-results__question-status.correct {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.15);
+  }
+  
+  .pre-assessment-results__question-status.incorrect {
+    color: #FF4757;
+    background: rgba(255, 71, 87, 0.15);
+  }
+  
+  .pre-assessment-results__question-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .pre-assessment-results__question-text {
+    color: #4b5563;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  
+  .pre-assessment-results__question-media {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+  
+  .pre-assessment-results__displayed-text,
+  .pre-assessment-results__question-value {
+    color: #4b5563;
+    font-size: 0.95rem;
+    background: #edf2f7;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid #4a5494;
+  }
+  
+  .pre-assessment-results__passage {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #4a5494;
+  }
+  
+  .pre-assessment-results__passage-text {
+    margin: 0.5rem 0 0 0;
+    line-height: 1.6;
+    color: #374151;
+    font-style: italic;
+  }
+  
+  .pre-assessment-results__question-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid #4a5494;
+  }
+  
+  .pre-assessment-results__answer-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .pre-assessment-results__answer-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    min-width: 120px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .pre-assessment-results__answer-value {
+    font-size: 1rem;
+    color: #4b5563;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background: #edf2f7;
+    border-radius: 6px;
+  }
+  
+  .pre-assessment-results__answer--correct {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid rgba(76, 175, 80, 0.25);
+  }
+  
+  .pre-assessment-results__answer--incorrect {
+    color: #FF4757;
+    background: rgba(255, 71, 87, 0.15);
+    border: 1px solid rgba(255, 71, 87, 0.25);
+  }
+  
+  /* Correct/Incorrect Icons - Use blue theme */
+  .pre-assessment-results__icon-correct {
+    color: #4CAF50;
+    margin-left: 5px;
+  }
+  
+  .pre-assessment-results__icon-incorrect {
+    color: #4a5494;
+    margin-left: 5px;
+    opacity: 0.7;
+  }
+  
+  /* ===== CONCLUSION SECTION ===== */
+  .pre-assessment-results__conclusion {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(59, 79, 129, 0.12);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .pre-assessment-results__conclusion-title {
+    margin: 0 0 1.25rem 0;
+    color: #4a5494;
+    font-size: 1.375rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pre-assessment-results__conclusion-text {
+    margin: 0 0 1.25rem 0;
+    color: #4b5563;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+  
+  .pre-assessment-results__conclusion-text strong {
+    color: #4a5494;
+    font-weight: 600;
+  }
+  
+  .pre-assessment-results__focus-value {
+    color: #4a5494;
+    font-weight: 600;
+    margin-left: 0.5rem;
+  }
+  
+  .pre-assessment-results__focus-areas {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e6f4ff 100%);
+    padding: 1.25rem;
+    border-radius: 12px;
+    color: #4a5494;
+    font-size: 1rem;
+    font-weight: 500;
+    border-left: 4px solid #4a5494;
+  }
+  
+  /* ===== PROCESS NOTE ===== */
+  .pre-assessment-results__process-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #f4f6ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #4a5494;
+  }
+  
+  .pre-assessment-results__process-note-icon {
+    color: #4a5494;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  
+  .pre-assessment-results__process-note-text p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .pre-assessment-results__process-note-text strong {
+    color: #4a5494;
+    font-weight: 600;
+  }
+  
+  /* ===== RESPONSIVE DESIGN ===== */
+  @media (max-width: 1200px) {
+    .pre-assessment-results__overview-grid {
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pre-assessment-results {
+      gap: 1.25rem;
+    }
+   
+    .pre-assessment-results__info-banner,
+    .pre-assessment-results__overview,
+    .pre-assessment-results__skills-section,
+    .pre-assessment-results__conclusion {
+      padding: 1.25rem;
+    }
+   
+    .pre-assessment-results__info-banner {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .pre-assessment-results__overview-grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    
+    .pre-assessment-results__overview-item {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .pre-assessment-results__skill-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .pre-assessment-results__answer-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .pre-assessment-results__process-note {
+      flex-direction: column;
+      text-align: center;
+    }
+   
+    .pre-assessment-results__overview-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .pre-assessment-results__score-badge {
+      align-self: flex-start;
+    }
+   
+    .pre-assessment-results__question-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pre-assessment-results__empty-state {
+      padding: 2rem 1rem;
+    }
+   
+    .pre-assessment-results__skill-header {
+      padding: 1rem;
+    }
+   
+    .pre-assessment-results__skill-bar-wrapper {
+      margin: 0 1rem 1rem 1rem;
+    }
+   
+    .pre-assessment-results__skill-details {
+      margin: 0 1rem 1rem;
+      padding: 1rem;
+    }
+  }
+  
+  /* ===== ACCESSIBILITY ===== */
+  @media (prefers-reduced-motion: reduce) {
+    .pre-assessment-results__skill-bar,
+    .pre-assessment-results__skill-item,
+    .pre-assessment-results__overview-item,
+    .pre-assessment-results__expand-btn {
+      transition: none;
+    }
+   
+    .pre-assessment-results__skill-bar::after {
+      animation: none;
+    }
+   
+    @keyframes expandSkillDetails {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  }
+   
+  .pre-assessment-results__expand-btn:focus {
+    outline: 2px solid #4a5494;
+    outline-offset: 2px;
+  }
+   
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    .pre-assessment-results {
+      background: white;
+      box-shadow: none;
+    }
+   
+    .pre-assessment-results__expand-btn {
+      display: none;
+    }
+   
+    .pre-assessment-results__skill-details {
+      display: block !important;
+    }
+  }
+
+/* Reading Comprehension Specific Styles */
+.pre-assessment-results__reading-comprehension {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #f8faff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #e1e7f5;
+}
+
+.pre-assessment-results__main-instruction {
+  background: #e8f1ff;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border-left: 4px solid #4a5494;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(74, 84, 148, 0.1);
+}
+
+.pre-assessment-results__story-section {
+  background: #f0f7ff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border-left: 4px solid #4a5494;
+  box-shadow: 0 2px 6px rgba(74, 84, 148, 0.1);
+}
+
+.pre-assessment-results__story-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #4a5494;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.pre-assessment-results__story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pre-assessment-results__story-page {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 3px solid #4a5494;
+  box-shadow: 0 1px 3px rgba(74, 84, 148, 0.1);
+}
+
+.pre-assessment-results__page-number {
+  font-weight: 600;
+  color: #4a5494;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pre-assessment-results__story-text {
+  margin: 0;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.pre-assessment-results__story-image {
+  margin-top: 0.75rem;
+  color: #4a5494;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-style: italic;
+}
+
+.pre-assessment-results__actual-question {
+  background: #dde9fb;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border-left: 4px solid #4a5494;
+  box-shadow: 0 2px 6px rgba(74, 84, 148, 0.1);
+}
+
+.pre-assessment-results__question-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #4a5494;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.pre-assessment-results__actual-question .pre-assessment-results__question-text {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}

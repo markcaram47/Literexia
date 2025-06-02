@@ -1,0 +1,586 @@
+
+
+body {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.homepage {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* --------HERO Section------ */
+
+.hero-section {
+  height: 120vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 4rem 0 0 0;
+  background-color: transparent;
+}
+
+.hero-content {
+  max-width: 650px;
+  color: white;
+  padding-left: 8%;
+  align-self: flex-start;
+  margin-top: 0.6rem;
+}
+
+.hero-content h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  line-height: 1.9;
+  margin-bottom: 1.8rem;
+  margin-top: 2.9rem;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.hero-animations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  width: 200px;  
+  opacity: 0.9;  
+}
+
+.cloud1 {
+  top: 28%;
+  right: 10%;
+  animation: driftCloud1 20s ease-in-out infinite;
+}
+
+.cloud2 {
+  top: 12%;
+  left: 55%;
+  animation: driftCloud2 20s ease-in-out infinite;
+}
+
+.cloud3 {
+  top: 2%;
+  left: 80%;
+  animation: driftCloud3 45s ease-in-out infinite;
+}
+
+@keyframes driftCloud1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -20px);
+  }
+}
+
+@keyframes driftCloud2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-40px, 15px);
+  }
+}
+
+@keyframes driftCloud3 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(25px, -10px);
+  }
+}
+
+.hero-penguin {
+  position: absolute;
+  top: 1rem;     
+  right: 20%;
+  width: 200px;     
+  animation: floatPenguin 4s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes floatPenguin {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-7px) rotate(-2deg);
+  }
+}
+
+/* --------About Section------ */
+
+.about-section {
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 9% 2rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1100px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.about-image {
+  max-width: 650px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  top: -70px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
+  top: -10px;
+  font-family: 'Atkinson Hyperlegible', sans-serif; 
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2a3b73;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  color: #2a2a2a;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ----FEATURES SECTION ------ */
+
+.features-section {
+  background-image: url('../assets/images/Homepage/background-2.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top center;
+  width: 100%;
+  min-height: 155vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  padding: 1rem 1rem 2rem;
+}
+
+.features-heading {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 5rem;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 6rem;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.feature-card {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.feature-card img {
+  width: 120px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover img {
+  transform: scale(1.1);
+}
+
+.feature-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.feature-card p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+.bear-mascot {
+  width: 190px;
+  margin-top: -2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .features-heading {
+    font-size: 1.5rem;
+  }
+
+  .feature-card img {
+    width: 70px;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ----- DYSLEXIA FONT CUSTOM ----- */
+
+.dyslexia-section {
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.2rem 6% 0.1rem; 
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.dyslexia-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 900;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+}
+
+.dyslexia-image {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  top: -100px;
+}
+
+.dyslexia-text {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  top: 60px;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  padding-top: 0;
+}
+
+.dyslexia-heading {
+  font-size: 2.9rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2a3b73;
+}
+
+.dyslexia-description {
+  font-size: 1.2rem;
+  color: #2a2a2a;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ----- TEACHING METHODOLOGY ----- */
+
+.teaching-methodology-section {
+  background-image: url('../assets/images/Homepage/Group 4078.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top 0 left -10%;
+  width: 100%;
+  min-height: 175vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 2rem 1.2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.teaching-methodology-section .teaching-image {
+  width: 140px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.teaching-methodology-section .features-heading {
+  font-size: 2.9rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.teaching-methodology-section .features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 4rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.teaching-methodology-section .feature-card {
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teaching-methodology-section .feature-card img {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+.teaching-methodology-section .feature-card h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.teaching-methodology-section .feature-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .teaching-methodology-section .features-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .teaching-methodology-section .features-heading {
+    font-size: 1.5rem;
+  }
+}
+
+/* --------------------------------------- */
+/*          WHY CHOOSE LITEREXIA          */
+/* --------------------------------------- */
+
+.why-literexia-section {
+  width: 100vw;
+  background-color: #fff; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 9%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.why-literexia-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  margin-top: -5rem;
+  color: #2a3b73; 
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  text-align: center;
+}
+
+.why-laptop-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.why-laptop-image {
+  max-width: 450px;
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+.why-literexia-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 6rem; 
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-card {
+  background-color: transparent; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2a3b73; 
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+}
+
+.why-card h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  max-width: 1900px;
+}
+
+.why-card p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 10px;
+  max-width: 1900px;
+}
+
+.why-star {
+  width: 90px;
+  height: auto;
+  margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.why-card:hover .why-star {
+  transform: rotate(15deg) scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .why-literexia-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .why-literexia-heading {
+    font-size: 1.8rem;
+  }
+
+  .why-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .why-card p {
+    font-size: 0.95rem;
+  }
+
+  .why-star {
+    width: 60px;
+  }
+}
+
+/* Reveal animation for sections */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll to top button */
+.scroll-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3B4F81;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 999;
+  transform: translateY(20px);
+}
+
+.scroll-top-button:hover {
+  background-color: #FFCE09;
+  color: #333;
+  transform: translateY(-5px);
+}
+
+.scroll-top-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}

@@ -1,0 +1,22 @@
+* src/components/Layout/AdminLayout.css */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 240px; /* Width of the navigation bar */
+  transition: margin-left 0.3s ease;
+  max-width: calc(100% - 240px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .admin-content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}

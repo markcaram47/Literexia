@@ -1,0 +1,76 @@
+
+/* ---------- Mobile (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      gap: 0.5rem;
+    }
+    .nav-links {
+      gap: 1rem;
+    }
+    .login-btn {
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+    }
+  
+    /* HERO SECTION */
+    .hero-section {
+      height: auto; 
+      padding: 4rem 5%;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content {
+      margin-top: 2rem;
+      max-width: 100%;
+    }
+    .hero-content h2 {
+      font-size: 2rem;
+    }
+    .hero-content p {
+      font-size: 0.95rem;
+    }
+    .register-btn {
+      font-size: 1rem;
+      padding: 0.6rem 2rem;
+    }
+  
+    /* ABOUT SECTION */
+    .about-section {
+      position: static;
+      top: 0;
+      height: auto; /* so it fits phone screen */
+      min-height: auto;
+      margin-bottom: 0;
+      padding: 2rem 5%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .about-image {
+      max-width: 80%;
+      top: 0; 
+    }
+    .about-text {
+      top: 0;
+      text-align: center;
+    }
+    .about-heading {
+      font-size: 1.5rem;
+    }
+    .about-description {
+      font-size: 0.95rem;
+    }
+  }
+  

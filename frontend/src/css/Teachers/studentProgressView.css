@@ -1,0 +1,558 @@
+/* Student Profile View Styles - Literexia Application */
+
+:root {
+  /* Main colors */
+  --literexia-primary: #3B4F81;
+  --literexia-primary-light: #5068A0;
+  --literexia-primary-dark: #2C3E70;
+  --literexia-secondary: #4CAF50;
+  --literexia-secondary-light: #80E27E;
+  --literexia-secondary-dark: #087F23;
+  
+  /* Status colors */
+  --literexia-warning: #FF9800;
+  --literexia-error: #F44336;
+  --literexia-success: #4CAF50;
+  
+  /* Category-specific colors */
+  --literexia-patinig: #EF5350;       /* Vowel Sound */
+  --literexia-pantig: #FFCA28;        /* Syllable Blending */
+  --literexia-salita: #66BB6A;        /* Word Recognition */
+  --literexia-pag-unawa: #42A5F5;     /* Reading Comprehension */
+  
+  /* Text colors */
+  --literexia-text-primary: #ffffff;
+  --literexia-text-secondary: #666;
+  --literexia-text-light: #999;
+  
+  /* Background colors */
+  --literexia-bg-light: #F5F7FA;
+  --literexia-bg-card: #FFF;
+  
+  /* UI elements */
+  --literexia-border-radius: 10px;
+  --literexia-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --literexia-transition: all 0.3s ease;
+}
+
+/* Main container */
+.literexia-profile-container {
+  position: relative;
+  font-family: 'Atkinson Hyperlegible', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin-left: 260px; /* Match sidebar width */
+  background-color: var(--literexia-bg-light);
+  min-height: 100vh;
+  color: var(--literexia-text-primary);
+  padding-bottom: 2rem;
+}
+
+/* Header */
+.literexia-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--literexia-primary);
+  background-image: linear-gradient(135deg, var(--literexia-primary) 0%, var(--literexia-primary-dark) 100%);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.literexia-header-content h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  
+}
+
+.literexia-header-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.9;
+  color: var(--literexia-text-primary);
+}
+
+.literexia-btn-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--literexia-border-radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--literexia-transition);
+}
+
+.literexia-btn-back:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Top cards section */
+.literexia-top-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+/* Tabs navigation */
+.literexia-tabs-navigation {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 2rem;
+  margin-bottom: 0;
+  background-color: var(--literexia-primary-light);
+  border-top-left-radius: var(--literexia-border-radius);
+  border-top-right-radius: var(--literexia-border-radius);
+  padding-top: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.literexia-tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: var(--literexia-border-radius) var(--literexia-border-radius) 0 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--literexia-transition);
+  position: relative;
+  bottom: -1px;
+}
+
+.literexia-tab-button:hover:not(.locked) {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.literexia-tab-button.active {
+  background-color: white;
+  color: var(--literexia-primary);
+  font-weight: 600;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.literexia-tab-button.locked {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.lock-icon {
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  opacity: 0.8;
+}
+
+/* Warning and success alerts */
+.literexia-warning-alert,
+.literexia-success-alert {
+  margin: 1rem 2rem 0;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--literexia-border-radius);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+.literexia-warning-alert {
+  background-color: rgba(255, 152, 0, 0.15);
+  border-left: 4px solid var(--literexia-warning);
+  color: #9A5800;
+}
+
+.literexia-success-alert {
+  background-color: rgba(76, 175, 80, 0.15);
+  border-left: 4px solid var(--literexia-secondary);
+  color: #2E7D32;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab content */
+.literexia-tab-content {
+  background-color: white;
+  border-radius: 0 0 var(--literexia-border-radius) var(--literexia-border-radius);
+  box-shadow: var(--literexia-box-shadow);
+  margin: 0 2rem 2rem;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.literexia-tab-panel {
+  animation: literexiaFadeIn 0.3s ease-out;
+}
+
+@keyframes literexiaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.literexia-panel-header {
+  background-color: var(--literexia-primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.literexia-panel-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.literexia-panel-content {
+  padding: 1.5rem;
+}
+
+/* Locked content */
+.literexia-locked-content {
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--literexia-text-secondary);
+}
+
+.literexia-lock-large {
+  font-size: 3rem;
+  color: var(--literexia-text-light);
+  margin-bottom: 1rem;
+}
+
+
+
+.literexia-locked-content h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--literexia-text-primary);
+}
+
+.literexia-locked-content p {
+  max-width: 450px;
+  margin: 0.5rem auto 1.5rem;
+}
+
+.literexia-btn-goto-assign {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--literexia-primary);
+  color: white;
+  border: none;
+  border-radius: var(--literexia-border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--literexia-transition);
+}
+
+.literexia-btn-goto-assign:hover {
+  background-color: var(--literexia-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--literexia-box-shadow);
+}
+
+/* Empty state */
+.literexia-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--literexia-text-secondary);
+}
+
+.literexia-empty-state svg {
+  font-size: 3rem;
+  color: var(--literexia-text-light);
+  margin-bottom: 1rem;
+}
+
+.literexia-empty-state h3 {
+  margin-top: 0;
+  color: var(--literexia-text-primary);
+  font-size: 1.25rem;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .literexia-profile-container {
+    margin-left: 0;
+  }
+  
+  .literexia-top-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .literexia-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .literexia-btn-back {
+    width: 100%;
+  }
+  
+  .literexia-tabs-navigation {
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+  }
+  
+  .literexia-tab-button {
+    flex: 1 0 calc(50% - 0.75rem);
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .literexia-profile-header,
+  .literexia-top-cards,
+  .literexia-tab-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .literexia-header-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .literexia-header-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Reading Level Badge Styles */
+.level-low-emerging {
+  background: linear-gradient(135deg, #FF6B8A, #FF4757) !important;
+  color: white;
+}
+
+.level-high-emerging {
+  background: linear-gradient(135deg, #FF9E40, #FF7F00) !important;
+  color: white;
+}
+
+.level-developing {
+  background: linear-gradient(135deg, #FFCD56, #FFA500) !important;
+  color: white;
+}
+
+.level-transitioning {
+  background: linear-gradient(135deg, #6C8EF4, #4A90E2) !important;
+  color: white;
+}
+
+.level-at-grade {
+  background: linear-gradient(135deg, #4BC0C0, #00B894) !important;
+  color: white;
+}
+
+.level-default {
+  background: linear-gradient(135deg, #B0B0B0, #808080) !important;
+  color: white;
+}
+
+/* Skill bar colors by category */
+.assessment-results__skill-bar--alphabet-knowledge {
+  background: linear-gradient(90deg, #FFB74D, #EF5350);
+}
+
+.assessment-results__skill-bar--phonological-awareness {
+  background: linear-gradient(90deg, #FFE082, #FFCA28);
+}
+
+.assessment-results__skill-bar--decoding {
+  background: linear-gradient(90deg, #A5D6A7, #66BB6A);
+}
+
+.assessment-results__skill-bar--word-recognition {
+  background: linear-gradient(90deg, #90CAF9, #42A5F5);
+}
+
+.assessment-results__skill-bar--reading-comprehension {
+  background: linear-gradient(90deg, #CE93D8, #AB47BC);
+}
+
+
+
+/* Add this to the existing studentProgressView.css */
+
+/* IEP Table */
+.literexia-iep-table-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.literexia-iep-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: white;
+}
+
+.literexia-iep-table th {
+  background-color: #4a5494;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.literexia-iep-table .literexia-assistance-level-header th {
+  background-color: #5b67a9;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+.literexia-iep-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.literexia-iep-table tr:last-child td {
+  border-bottom: none;
+}
+
+.literexia-iep-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.literexia-status-cell .literexia-status-completed {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #4a5494;
+}
+
+.literexia-status-cell .literexia-status-in-progress {
+  font-weight: 500;
+  color: #f59e0b;
+}
+
+.literexia-assistance-cell {
+  text-align: center;
+}
+
+.literexia-assistance-checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.literexia-assistance-checkbox.selected {
+  background-color: #4a5494;
+  color: white;
+  border-color: #4a5494;
+}
+
+.literexia-remarks-cell {
+  min-width: 200px;
+}
+
+.literexia-remarks-view {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.literexia-remarks-view p {
+  margin: 0;
+  flex: 1;
+}
+
+.literexia-remarks-edit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.literexia-remarks-textarea {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0.5rem;
+  min-height: 80px;
+  resize: vertical;
+}
+
+.literexia-edit-remarks-btn,
+.literexia-save-remarks-btn {
+  background: none;
+  border: none;
+  color: #4a5494;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.literexia-edit-remarks-btn:hover,
+.literexia-save-remarks-btn:hover {
+  background-color: #eef2ff;
+}
+
+.literexia-iep-info {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f4f6ff;
+  border-radius: 8px;
+  border-left: 4px solid #4a5494;
+}
+
+.literexia-iep-info p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .literexia-iep-table-container {
+    overflow-x: auto;
+  }
+  
+  .literexia-iep-table {
+    min-width: 800px;
+  }
+}

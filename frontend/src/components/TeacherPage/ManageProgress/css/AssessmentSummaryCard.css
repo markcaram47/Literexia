@@ -1,0 +1,234 @@
+/* UniqueAssessmentCard Component Styles */
+.unique-literexia-assessment-card {
+  background-color: white !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-top: 5px solid transparent !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.unique-literexia-assessment-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Dynamic border colors based on reading level */
+.unique-literexia-assessment-card.unique-reading-level-early {
+  border-top-color: #1e548d !important;
+}
+
+.unique-literexia-assessment-card.unique-reading-level-developing {
+  border-top-color: #FF9800 !important;
+}
+
+.unique-literexia-assessment-card.unique-reading-level-fluent {
+  border-top-color: #4CAF50 !important;
+}
+
+.unique-literexia-assessment-card.unique-reading-level-advanced {
+  border-top-color: #3F51B5 !important;
+}
+
+.unique-literexia-assessment-card.unique-reading-level-not-assessed {
+  border-top-color: #F9A825 !important;
+}
+
+.unique-literexia-assessment-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.unique-literexia-assessment-title {
+  margin: 0 !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: #3B4F81 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.unique-literexia-header-icon {
+  color: #4C6FD6 !important;
+}
+
+.unique-literexia-score-badge {
+  font-weight: 700 !important;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: 20px !important;
+  font-size: 1rem !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 60px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+/* Score badge colors based on percentage */
+.unique-literexia-score-badge.unique-score-excellent {
+  background-color: #4CAF50 !important;
+}
+
+.unique-literexia-score-badge.unique-score-good {
+  background-color: #3B4F81 !important;
+}
+
+.unique-literexia-score-badge.unique-score-average {
+  background-color: #FF9800 !important;
+}
+
+.unique-literexia-score-badge.unique-score-needs-improvement {
+  background-color: #F44336 !important;
+}
+
+.unique-literexia-score-badge.unique-score-not-assessed {
+  background-color: #F9A825 !important;
+}
+
+.unique-literexia-assessment-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+.unique-literexia-assessment-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
+}
+
+.unique-literexia-item-icon {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 8px !important;
+  background-color: rgba(76, 175, 80, 0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #4CAF50 !important;
+  font-size: 1.1rem !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s ease !important;
+  margin-top: 2px !important;
+}
+
+/* Icon background colors based on reading level */
+.unique-literexia-item-icon.unique-reading-level-early {
+  background-color: rgba(30, 84, 141, 0.1) !important;
+  color: #1e548d !important;
+}
+
+.unique-literexia-item-icon.unique-reading-level-developing {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+  color: #FF9800 !important;
+}
+
+.unique-literexia-item-icon.unique-reading-level-fluent {
+  background-color: rgba(76, 175, 80, 0.1) !important;
+  color: #4CAF50 !important;
+}
+
+.unique-literexia-item-icon.unique-reading-level-advanced {
+  background-color: rgba(63, 81, 181, 0.1) !important;
+  color: #3F51B5 !important;
+}
+
+.unique-literexia-item-icon.unique-reading-level-not-assessed {
+  background-color: rgba(249, 168, 37, 0.1) !important;
+  color: #F9A825 !important;
+}
+
+.unique-literexia-item-icon.unique-calendar-icon {
+  background-color: rgba(108, 117, 125, 0.1) !important;
+  color: #6c757d !important;
+}
+
+.unique-literexia-item-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.unique-literexia-item-label {
+  color: #666 !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.unique-literexia-item-value {
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: #333 !important;
+  line-height: 1.2 !important;
+}
+
+/* Text colors based on reading level */
+.unique-literexia-item-value.unique-reading-level-early {
+  color: #1e548d !important;
+}
+
+.unique-literexia-item-value.unique-reading-level-developing {
+  color: #FF9800 !important;
+}
+
+.unique-literexia-item-value.unique-reading-level-fluent {
+  color: #4CAF50 !important;
+}
+
+.unique-literexia-item-value.unique-reading-level-advanced {
+  color: #3F51B5 !important;
+}
+
+.unique-literexia-item-value.unique-reading-level-not-assessed {
+  color: #F9A825 !important;
+}
+
+.unique-literexia-item-value.unique-date-value {
+  color: #333 !important;
+}
+
+.unique-literexia-assessment-card {
+  animation: uniqueLiterexiaSlideIn 0.4s ease-out !important;
+}
+
+@keyframes uniqueLiterexiaSlideIn {
+  from {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+  }
+  to {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .unique-literexia-assessment-item {
+    gap: 0.75rem !important;
+  }
+  
+  .unique-literexia-assessment-header {
+    margin-bottom: 1rem !important;
+  }
+  
+  .unique-literexia-score-badge {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .unique-literexia-item-value {
+    font-size: 1rem !important;
+  }
+}

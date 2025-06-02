@@ -1,0 +1,13 @@
+.teacher-layout-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #3B4F81;
+  position: relative;
+}
+
+  .main-content-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #f5f7fb; 
+    padding: 0;
+  }

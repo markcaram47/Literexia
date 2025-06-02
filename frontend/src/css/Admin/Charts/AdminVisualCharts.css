@@ -1,0 +1,225 @@
+/* src/css/Admin/Charts/AdminVisualCharts.css */
+
+.admin-visual-charts {
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.admin-visual-charts__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-visual-charts__loading-spinner {
+  color: #64748b;
+  font-size: 18px;
+}
+
+.admin-visual-charts__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.admin-visual-charts__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.admin-visual-charts__controls {
+  display: flex;
+  gap: 12px;
+}
+
+.admin-visual-charts__select {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-visual-charts__select:hover {
+  border-color: #3b82f6;
+}
+
+.admin-visual-charts__select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.admin-visual-charts__content {
+  display: grid;
+  gap: 24px;
+}
+
+.admin-visual-charts__section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.admin-visual-charts__section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-visual-charts__chart-container {
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.admin-visual-charts__section--summary {
+  margin-top: 32px;
+}
+
+.admin-visual-charts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.admin-visual-charts__metric-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.admin-visual-charts__metric-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.admin-visual-charts__metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 8px 0;
+  line-height: 1.2;
+}
+
+.admin-visual-charts__metric-subtitle {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .admin-visual-charts {
+    padding: 16px;
+  }
+  
+  .admin-visual-charts__header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .admin-visual-charts__controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-visual-charts__header {
+    text-align: center;
+  }
+  
+  .admin-visual-charts__controls {
+    justify-content: center;
+  }
+  
+  .admin-visual-charts__select {
+    width: 100%;
+  }
+  
+  .admin-visual-charts__section {
+    padding: 16px;
+  }
+  
+  .admin-visual-charts__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Chart Styling */
+.recharts-default-tooltip {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  padding: 8px 12px !important;
+}
+
+.recharts-tooltip-label {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-bottom: 4px !important;
+}
+
+.recharts-tooltip-item {
+  color: #4b5563 !important;
+  font-size: 13px !important;
+}
+
+.recharts-legend-wrapper {
+  padding-top: 16px !important;
+}
+
+.recharts-legend-item {
+  margin-right: 16px !important;
+  font-size: 13px !important;
+  color: #4b5563 !important;
+}
+
+.recharts-pie-sector {
+  transition: all 0.3s ease;
+}
+
+.recharts-pie-sector:hover {
+  filter: brightness(1.1);
+}
+
+.recharts-bar:hover {
+  filter: brightness(1.05);
+}
+
+.recharts-area {
+  opacity: 0.6 !important;
+  transition: all 0.3s ease;
+}
+
+.recharts-area:hover {
+  opacity: 0.8 !important;
+}

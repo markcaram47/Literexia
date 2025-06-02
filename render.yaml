@@ -1,0 +1,30 @@
+services:
+  # Backend service
+  - type: web
+    name: dyslexia-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Add your other environment variables here
+      # - key: MONGODB_URI
+      #   sync: false
+      # - key: AWS_ACCESS_KEY_ID
+      #   sync: false
+      # - key: AWS_SECRET_ACCESS_KEY
+      #   sync: false
+      # - key: AWS_REGION
+      #   sync: false
+      # - key: AWS_BUCKET_NAME
+      #   sync: false
+
+  # Frontend service
+  - type: static
+    name: dyslexia-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://dyslexia-backend.onrender.com 

@@ -1,0 +1,381 @@
+/* Shared Variables */
+:root {
+  --reader-primary: #2c3e50;
+  --reader-primary-light: rgba(44, 62, 80, 0.1);
+  --reader-secondary: #34495e;
+  --reader-accent: #3498db;
+  --reader-accent-light: rgba(52, 152, 219, 0.1);
+  --reader-success: #2ecc71;
+  --reader-success-light: rgba(46, 204, 113, 0.1);
+  --reader-warning: #f39c12;
+  --reader-warning-light: rgba(243, 156, 18, 0.1);
+  --reader-danger: #e74c3c;
+  --reader-danger-light: rgba(231, 76, 60, 0.1);
+  --reader-neutral-dark: #333333;
+  --reader-neutral-medium: #666666;
+  --reader-neutral-light: #999999;
+  --reader-neutral-bg: #f5f7fa;
+  --reader-white: #ffffff;
+  --reader-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --reader-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --reader-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --reader-radius-sm: 4px;
+  --reader-radius-md: 8px;
+  --reader-radius-lg: 12px;
+  --reader-transition: all 0.2s ease-in-out;
+}
+
+/* Shared Card Styles */
+.reader-card {
+  background-color: var(--reader-white);
+  padding: 1.5rem;
+  border-radius: var(--reader-radius-lg);
+  box-shadow: var(--reader-shadow-md);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  border-top: 4px solid var(--reader-primary);
+  transition: var(--reader-transition);
+}
+
+.reader-card:hover {
+  box-shadow: var(--reader-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ====== STUDENT PROFILE CARD ====== */
+.reader-student-card {
+  gap: 1.25rem;
+}
+
+.reader-student-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.reader-avatar {
+  flex-shrink: 0;
+}
+
+.reader-avatar-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--reader-primary-light);
+  color: var(--reader-primary);
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: relative;
+  box-shadow: var(--reader-shadow-sm);
+}
+
+.reader-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reader-student-name-section {
+  flex: 1;
+}
+
+.reader-student-name {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--reader-primary);
+  line-height: 1.2;
+}
+
+.reader-student-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--reader-neutral-medium);
+  background-color: var(--reader-neutral-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--reader-radius-sm);
+}
+
+/* Student details */
+.reader-student-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reader-detail-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.reader-detail-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reader-detail-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--reader-radius-md);
+  background-color: var(--reader-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--reader-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.reader-detail-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.reader-detail-label {
+  font-size: 0.8rem;
+  color: var(--reader-neutral-medium);
+  margin-bottom: 0.2rem;
+}
+
+.reader-detail-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--reader-neutral-dark);
+}
+
+/* Reading level specific styling */
+.reading-level-early .reader-detail-icon,
+.reading-level-early .reader-item-icon {
+  background-color: var(--reader-danger-light);
+  color: var(--reader-danger);
+}
+
+.reading-level-developing .reader-detail-icon,
+.reading-level-developing .reader-item-icon {
+  background-color: var(--reader-warning-light);
+  color: var(--reader-warning);
+}
+
+.reading-level-fluent .reader-detail-icon,
+.reading-level-fluent .reader-item-icon {
+  background-color: var(--reader-success-light);
+  color: var(--reader-success);
+}
+
+.reading-level-advanced .reader-detail-icon,
+.reading-level-advanced .reader-item-icon {
+  background-color: var(--reader-accent-light);
+  color: var(--reader-accent);
+}
+
+.reading-level-not-assessed .reader-detail-icon,
+.reading-level-not-assessed .reader-item-icon {
+  background-color: var(--reader-neutral-bg);
+  color: var(--reader-neutral-medium);
+}
+
+.reading-level-early .reader-detail-value,
+.reading-level-early .reader-item-value {
+  color: var(--reader-danger);
+}
+
+.reading-level-developing .reader-detail-value,
+.reading-level-developing .reader-item-value {
+  color: var(--reader-warning);
+}
+
+.reading-level-fluent .reader-detail-value,
+.reading-level-fluent .reader-item-value {
+  color: var(--reader-success);
+}
+
+.reading-level-advanced .reader-detail-value,
+.reading-level-advanced .reader-item-value {
+  color: var(--reader-accent);
+}
+
+.reading-level-not-assessed .reader-detail-value,
+.reading-level-not-assessed .reader-item-value {
+  color: var(--reader-neutral-medium);
+}
+
+/* ====== ASSESSMENT SUMMARY CARD ====== */
+.reader-assessment-card {
+  gap: 1.25rem;
+}
+
+.reader-assessment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.reader-assessment-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--reader-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reader-header-icon {
+  color: var(--reader-accent);
+}
+
+.reader-score-badge {
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--reader-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 55px;
+}
+
+.score-excellent {
+  background-color: var(--reader-success);
+}
+
+.score-good {
+  background-color: var(--reader-accent);
+}
+
+.score-average {
+  background-color: var(--reader-warning);
+}
+
+.score-needs-improvement {
+  background-color: var(--reader-danger);
+}
+
+.score-not-assessed {
+  background-color: var(--reader-neutral-medium);
+}
+
+.reader-assessment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.reader-assessment-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reader-item-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--reader-radius-md);
+  background-color: var(--reader-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--reader-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.reader-item-content {
+  flex: 1;
+}
+
+.reader-item-value {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+  color: var(--reader-neutral-dark);
+}
+
+.reader-item-label {
+  color: var(--reader-neutral-medium);
+  font-size: 0.85rem;
+}
+
+.reader-assessment-divider {
+  height: 1px;
+  background-color: var(--reader-neutral-bg);
+  margin: 0.25rem 0;
+}
+
+.reader-assessment-recommendation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.reader-recommendation-icon {
+  color: var(--reader-success);
+}
+
+.reader-recommendation-label {
+  color: var(--reader-neutral-medium);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.reader-recommendation-value {
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--reader-radius-sm);
+  background-color: var(--reader-neutral-bg);
+  color: var(--reader-neutral-dark);
+}
+
+/* Calendar specific styling */
+.calendar-icon {
+  background-color: var(--reader-neutral-bg) !important;
+  color: var(--reader-neutral-medium) !important;
+}
+
+.date-value {
+  color: var(--reader-neutral-dark) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .reader-detail-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .reader-student-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .reader-student-name-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .reader-assessment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .reader-score-badge {
+    align-self: flex-start;
+  }
+}

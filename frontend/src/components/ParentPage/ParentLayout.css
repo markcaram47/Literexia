@@ -1,0 +1,99 @@
+.parent-layout-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  background-color: #f5f7fb;
+  position: relative;
+}
+
+.parent-sidebar {
+  width: 250px;
+  background-color: #3b4f81;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.main-content-area {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.sidebar-header {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.sidebar-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 0;
+  color: white;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar-menu li {
+  padding: 15px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-menu li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.sidebar-menu li.active {
+  background-color: #f3c922;
+  color: #333;
+  border-radius: 8px;
+  padding: 15px 10px;
+}
+
+.sidebar-footer {
+  padding-top: 20px;
+  cursor: pointer;
+  color: #f3c922;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .parent-sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .parent-sidebar.open {
+    width: 250px;
+    padding: 20px;
+  }
+
+  .main-content-area {
+    margin-left: 0;
+    width: 100%;
+  }
+}

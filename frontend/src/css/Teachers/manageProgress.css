@@ -1,0 +1,812 @@
+/* 
+ * Literexia Teacher Dashboard - Enhanced Professional UI
+ * Matched colors from sidebar and existing UI
+ */
+
+/* Core variables with exact color matching */
+.mp-container {
+  --mp-primary: #4B5DA1;          /* Sidebar blue color */
+  --mp-primary-light: rgba(75, 93, 161, 0.08);
+  --mp-secondary: #4C74F0;        /* Blue accent color from badge */
+  --mp-accent: #FFD25F;           /* Yellow accent from logo and selected tab */
+  --mp-accent-light: #F0F2FA;     /* Very light blue background */
+  --mp-text-dark: #2D3748;        /* Dark text for high contrast */
+  --mp-text-medium: #4A5568;      /* Medium text for normal content */
+  --mp-text-light: #718096;       /* Light text for secondary content */
+  --mp-bg-light: #F8FAFC;         /* Light background for container */
+  --mp-bg-white: #FFFFFF;         /* White background for cards */
+  --mp-border-light: #E2E8F0;     /* Light border color */
+  --mp-border-medium: #CBD5E0;    /* Medium border color */
+  
+  /* Status colors from screenshots */
+  --mp-success: #36B37E;          /* Green success color */
+  --mp-success-light: #E6F7EF;    /* Light success background */
+  --mp-warning: #FF9F43;          /* Warning orange */
+  --mp-warning-light: #FFF4E6;    /* Light warning background */
+  --mp-danger: #F25767;           /* Red error color */
+  --mp-danger-light: #FFEBEE;     /* Light error background */
+  --mp-info: #4C74F0;             /* Blue info color (matching badge) */
+  --mp-info-light: #E3F0FF;       /* Light info background */
+  
+  /* Reading level colors from screenshots */
+  --mp-level-fluent: #4C74F0;     /* Fluent level blue (from badge) */
+  --mp-level-not-assessed: #8992A9; /* Gray not assessed (from badge) */
+  --mp-level-early: #36B37E;      /* Early level green */
+  --mp-level-developing: #FF9F43; /* Developing level orange */
+  --mp-level-transitioning: #FFBC00; /* Transitioning level yellow */
+  --mp-level-grade: #4C74F0;      /* At grade level blue */
+  
+  /* Enhanced UI constants */
+  --mp-card-radius: 10px;         /* Card border radius */
+  --mp-btn-radius: 8px;           /* Button border radius */
+  --mp-badge-radius: 20px;        /* Badge border radius */
+  --mp-icon-radius: 8px;          /* Icon border radius */
+  --mp-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+  --mp-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.1); /* Hover shadow */
+  --mp-shadow-btn: 0 4px 6px rgba(75, 93, 161, 0.15); /* Button shadow */
+  --mp-spacing: 1.5rem;           /* Standard spacing */
+  --mp-spacing-sm: 0.75rem;       /* Small spacing */
+  --mp-transition: all 0.2s ease-in-out; /* Smooth transition */
+  
+  /* Layout settings - adjusted to match sidebar */
+  font-family: 'Atkinson Hyperlegible', 'Arial', sans-serif;
+  background-color: var(--mp-bg-light);
+  padding: 1.5rem;
+  min-height: 100vh;
+  margin-left: 240px;             /* Match sidebar width */
+  color: var(--mp-text-dark);
+  line-height: 1.5;
+}
+
+/* Header Section */
+.mp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--mp-spacing);
+  flex-wrap: wrap;
+  gap: var(--mp-spacing);
+  position: relative;
+}
+
+.mp-title-section {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.mp-title {
+  font-size: 2.15rem;
+  color: var(--mp-primary);
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+  line-height: 1.3;
+  position: relative;
+}
+
+.mp-title::after {
+  content: "";
+  display: block;
+  width: 300px;
+  height: 3px;
+  background: var(--mp-primary);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.mp-subtitle {
+  color: var(--mp-text-light);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Enhanced Search with sidebar-matching styling */
+.mp-search-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mp-search-wrapper {
+  position: relative;
+  width: 320px;
+}
+
+.mp-search-input {
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  border: 1px solid var(--mp-border-light);
+  border-radius: 20px;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: var(--mp-transition);
+  background-color: var(--mp-bg-white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.mp-search-input:focus {
+  outline: none;
+  border-color: var(--mp-primary);
+  box-shadow: 0 0 0 3px rgba(75, 93, 161, 0.15);
+}
+
+.mp-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mp-primary);
+  font-size: 1rem;
+}
+
+/* Filters Section */
+.mp-filters-section {
+  background-color: var(--mp-bg-white);
+  border-radius: var(--mp-card-radius);
+  box-shadow: var(--mp-shadow);
+  padding: var(--mp-spacing);
+  margin-bottom: var(--mp-spacing);
+  border-top: 3px solid var(--mp-primary);
+}
+
+.mp-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mp-spacing);
+}
+
+.mp-filter-group {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 0.5rem;
+}
+
+.mp-filter-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--mp-text-medium);
+  font-size: 0.9rem;
+}
+
+/* Select dropdown styling */
+.mp-select-wrapper {
+  position: relative;
+}
+
+.mp-select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--mp-border-light);
+  border-radius: var(--mp-btn-radius);
+  appearance: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: var(--mp-bg-white);
+  cursor: pointer;
+  transition: var(--mp-transition);
+  padding-right: 35px;
+  color: var(--mp-text-dark);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.mp-select:focus {
+  outline: none;
+  border-color: var(--mp-primary);
+  box-shadow: 0 0 0 3px rgba(75, 93, 161, 0.15);
+}
+
+/* Results Summary */
+.mp-results-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--mp-spacing);
+  padding: 1rem 1.25rem;
+  background-color: var(--mp-bg-white);
+  border-radius: var(--mp-card-radius);
+  box-shadow: var(--mp-shadow);
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-left: 3px solid var(--mp-primary);
+}
+
+.mp-results-count {
+  color: var(--mp-text-medium);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.mp-results-count strong {
+  color: var(--mp-primary);
+  font-weight: 700;
+}
+
+.mp-results-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--mp-text-medium);
+  font-size: 0.95rem;
+  background-color: var(--mp-accent-light);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--mp-btn-radius);
+}
+
+.mp-results-sort strong {
+  font-weight: 600;
+  color: var(--mp-primary);
+}
+
+/* Student Card Grid Layout */
+.mp-students-list {
+  margin-bottom: 2rem;
+}
+
+.mp-group-section {
+  margin-bottom: 2.5rem;
+}
+
+.mp-group-title {
+  font-size: 1.1rem;
+  color: var(--mp-primary);
+  margin: 0 0 1.5rem 0;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  background-color: var(--mp-accent-light);
+  border-radius: var(--mp-btn-radius);
+  display: inline-block;
+}
+
+.mp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  padding-left: 10px;
+
+}
+
+/* Student Card */
+.mp-student-card {
+  background-color: var(--mp-bg-white);
+  border-radius: var(--mp-card-radius);
+  box-shadow: var(--mp-shadow);
+  overflow: hidden;
+  transition: var(--mp-transition);
+  border: 1px solid var(--mp-border-light);
+  position: relative;
+}
+
+.mp-student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--mp-shadow-hover);
+}
+
+.mp-card-header {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: var(--mp-accent-light);
+  border-bottom: 1px solid var(--mp-border-light);
+  position: relative;
+}
+
+.mp-student-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--mp-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  border: 3px solid white;
+}
+
+.mp-student-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mp-student-avatar__initials {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.mp-header-main {
+  flex: 1;
+}
+
+.mp-student-basic-info {
+  flex: 1;
+}
+
+.mp-student-name {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--mp-primary);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.mp-student-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--mp-text-medium);
+  background-color: rgba(75, 93, 161, 0.08);
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Reading level badge */
+.mp-reading-level {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+  margin-top: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Reading level colors - matched from screenshots */
+.mp-level-1 {
+  background-color: var(--mp-level-early);
+}
+
+.mp-level-2 {
+  background-color: var(--mp-level-developing);
+}
+
+.mp-level-3 {
+  background-color: var(--mp-level-transitioning);
+  color: #333;
+}
+
+.mp-level-4 {
+  background-color: var(--mp-level-grade);
+}
+
+.mp-level-5,
+.mp-level-fluent {
+  background-color: var(--mp-level-fluent);
+}
+
+.mp-level-na {
+  background-color: var(--mp-level-not-assessed);
+}
+
+/* Card body styling */
+.mp-card-details {
+  padding: 1.25rem;
+}
+
+.mp-detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.mp-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--mp-text-medium);
+}
+
+.mp-detail-icon {
+  color: var(--mp-primary);
+  font-size: 1.1rem;
+  background-color: var(--mp-accent-light);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mp-icon-radius);
+}
+
+.mp-detail-text {
+  font-weight: 500;
+}
+
+/* Divider with style */
+.mp-section-divider {
+  height: 1px;
+  background: var(--mp-border-light);
+  margin: 1.2rem 0;
+}
+
+/* Assessment section */
+.mp-assessment-section {
+  margin: 1rem 0;
+  background-color: var(--mp-bg-light);
+  padding: 1rem;
+  border-radius: var(--mp-btn-radius);
+}
+
+.mp-assessment-label {
+  font-weight: 600;
+  color: var(--mp-text-medium);
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.mp-assessment-status {
+  display: flex;
+  align-items: center;
+}
+
+.mp-assessment-complete {
+  color: var(--mp-success);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  background-color: var(--mp-success-light);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--mp-btn-radius);
+}
+
+.mp-assessment-incomplete {
+  color: var(--mp-danger);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  background-color: var(--mp-danger-light);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--mp-btn-radius);
+}
+
+.mp-status-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mp-danger);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.mp-status-icon-inner {
+  font-size: 12px;
+}
+
+/* Progress section */
+.mp-progress-section {
+  margin: 1.25rem 0;
+  background-color: var(--mp-bg-light);
+  padding: 1rem;
+  border-radius: var(--mp-btn-radius);
+}
+
+.mp-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.mp-progress-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--mp-text-medium);
+}
+
+.mp-progress-value {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--mp-btn-radius);
+}
+
+/* Progress value colors with background */
+.mp-progress-excellent {
+  color: var(--mp-success);
+  background-color: var(--mp-success-light);
+}
+
+.mp-progress-good {
+  color: var(--mp-info);
+  background-color: var(--mp-info-light);
+}
+
+.mp-progress-average {
+  color: var(--mp-warning);
+  background-color: var(--mp-warning-light);
+}
+
+.mp-progress-needs-improvement {
+  color: var(--mp-danger);
+  background-color: var(--mp-danger-light);
+}
+
+/* Progress bar */
+.mp-progress-bar-container {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mp-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.mp-progress-bar.mp-progress-excellent {
+  background-color: var(--mp-success);
+}
+
+.mp-progress-bar.mp-progress-good {
+  background-color: var(--mp-info);
+}
+
+.mp-progress-bar.mp-progress-average {
+  background-color: var(--mp-warning);
+}
+
+.mp-progress-bar.mp-progress-needs-improvement {
+  background-color: var(--mp-danger);
+}
+
+.mp-progress-text {
+  font-size: 0.85rem;
+  color: var(--mp-text-medium);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Parent info */
+.mp-parent-info {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background-color: var(--mp-bg-light);
+  border-radius: var(--mp-btn-radius);
+  border-left: 3px solid var(--mp-primary);
+}
+
+.mp-parent-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mp-text-medium);
+  margin-bottom: 0.3rem;
+}
+
+.mp-parent-name {
+  font-weight: 600;
+  color: var(--mp-primary);
+  font-size: 1rem;
+}
+
+/* Button styling - matched to sidebar */
+.mp-btn-wrapper {
+  margin-top: 1.5rem;
+}
+
+.mp-view-details-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: var(--mp-primary);
+  color: white;
+  border: none;
+  border-radius: var(--mp-btn-radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--mp-transition);
+  text-align: center;
+  box-shadow: var(--mp-shadow-btn);
+  letter-spacing: 0.5px;
+}
+
+.mp-view-details-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(75, 93, 161, 0.2);
+  background-color: #4053AA;
+}
+
+.mp-view-details-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(75, 93, 161, 0.2);
+}
+
+/* Loading states */
+.mp-loading,
+.mp-no-results,
+.mp-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: var(--mp-bg-white);
+  border-radius: var(--mp-card-radius);
+  box-shadow: var(--mp-shadow);
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.mp-loading-spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgba(75, 93, 161, 0.1);
+  border-top-color: var(--mp-primary);
+  animation: mp-spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes mp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pagination - consistent with sidebar style */
+.mp-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--mp-spacing);
+  background-color: var(--mp-bg-white);
+  border-radius: var(--mp-card-radius);
+  box-shadow: var(--mp-shadow);
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  border-top: 3px solid var(--mp-primary);
+}
+
+.mp-pagination-info {
+  color: var(--mp-text-medium);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.mp-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mp-pagination-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: var(--mp-accent-light);
+  color: var(--mp-primary);
+  border: none;
+  border-radius: var(--mp-btn-radius);
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--mp-transition);
+  box-shadow: 0 1px 3px rgba(75, 93, 161, 0.15);
+}
+
+.mp-pagination-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mp-pagination-arrow:hover:not(:disabled) {
+  background-color: rgba(75, 93, 161, 0.2);
+  transform: translateY(-2px);
+}
+
+.mp-pagination-number {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--mp-bg-light);
+  border-radius: var(--mp-btn-radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mp-text-medium);
+  cursor: pointer;
+  transition: var(--mp-transition);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.mp-pagination-number:hover {
+  background-color: var(--mp-accent-light);
+  color: var(--mp-primary);
+  transform: translateY(-2px);
+}
+
+.mp-pagination-active {
+  background-color: var(--mp-primary);
+  color: white;
+  box-shadow: 0 2px 5px rgba(75, 93, 161, 0.3);
+}
+
+/* Responsive improvements */
+@media (max-width: 1200px) {
+  .mp-container {
+    padding: 1.5rem;
+  }
+
+  .mp-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .mp-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mp-search-container {
+    width: 100%;
+  }
+
+  .mp-search-wrapper {
+    width: 100%;
+  }
+
+  .mp-filter-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mp-filter-group {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mp-container {
+    padding: 1rem;
+    margin-left: 0;
+  }
+
+  .mp-pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mp-pagination-controls {
+    margin-top: 0.8rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mp-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mp-results-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

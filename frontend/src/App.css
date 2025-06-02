@@ -1,0 +1,29 @@
+@import url('./assets/fonts/fonts.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    background: transparent; 
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+  }
+  
+  .app-layout {
+    display: flex;
+  }
+  
+ 
+  .main-content-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: transparent; 
+    padding: 0;
+    margin-left: 10px;
+  }
+
+  
